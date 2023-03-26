@@ -13,3 +13,4 @@ tags
 /tests
 *.orig
 *.bak
+/.github

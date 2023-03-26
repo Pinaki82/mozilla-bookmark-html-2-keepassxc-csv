@@ -1,7 +1,7 @@
-// Last Change: 2023-03-26  Sunday: 07:59:13 PM
+// Last Change: 2023-03-26  Sunday: 08:27:17 PM
 
 /*
-  Licence: MIT-0.
+  Licence: GNU GENERAL PUBLIC LICENSE, Version 3, 29 June 2007
 */
 
 /*
