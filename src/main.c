@@ -1,4 +1,4 @@
-// Last Change: 2023-03-26  Sunday: 08:27:17 PM
+// Last Change: 2023-03-26  Sunday: 10:58:56 PM
 
 /*
   Licence: GNU GENERAL PUBLIC LICENSE, Version 3, 29 June 2007
@@ -41,9 +41,9 @@
 
   ```
   "Group","Title","Username","Password","URL","Notes","TOTP","Icon","Last Modified","Created"
-  "Root","firefox addons","","","https://addons.mozilla.org/en-US/firefox/","","","0","2023-03-23T11:24:26Z","2023-03-23T11:24:18Z"
-  "Root/group","chatgpt","","","https://chat.openai.com/chat","","","0","2023-03-23T11:24:43Z","2023-03-23T11:24:36Z"
-  "Root/group/sub-group","g calender","","","https://calendar.google.com/calendar","","","0","2023-03-23T11:25:01Z","2023-03-23T11:24:52Z"
+  "Root","firefox addons","","",https://addons.mozilla.org/en-US/firefox/,"","","0","2023-03-23T11:24:26Z","2023-03-23T11:24:18Z"
+  "Root/group","chatgpt","","",https://chat.openai.com/chat,"","","0","2023-03-23T11:24:43Z","2023-03-23T11:24:36Z"
+  "Root/group/sub-group","g calender","","",https://calendar.google.com/calendar,"","","0","2023-03-23T11:25:01Z","2023-03-23T11:24:52Z"
   ```
 
   By now, we know the pattern in which KeePassXC keeps
