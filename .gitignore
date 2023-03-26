@@ -1,0 +1,15 @@
+/build
+*.kdbx
+*.exe
+backup_code.txt
+*.csv
+*.html
+compile_flags.txt
+.ccls
+tagspath.txt
+splint_output.txt
+cppcheck_output.txt
+tags
+/tests
+*.orig
+*.bak
