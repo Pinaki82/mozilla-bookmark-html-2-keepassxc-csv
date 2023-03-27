@@ -16,6 +16,14 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+      - name: Set up CMake, Build and Test
+           uses: lukka/run-cmake@v2
+           with:
+               token: ${{ secrets._2023MAR }}
+               cmakeListsTxt: CMakeLists.txt
+               buildDir: build
+               buildType: Release
+               uses: actions/checkout@v2
 
       - name: Install CMake
         if: runner.os == 'Linux'
@@ -51,3 +59,7 @@ jobs:
         with:
           name: html2csv
           path: build/html2csv
+
+
+    steps:
+    - name: Checkout code
