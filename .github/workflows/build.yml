@@ -1,0 +1,38 @@
+name: Build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Set up CMake, Build and Test
+      uses: lukka/run-cmake@v2
+      with:
+        cmakeListsTxt: CMakeLists.txt
+        buildDir: build
+        buildType: Release
+
+    - name: Build project
+      run: cmake --build build --config Release
+
+    - name: Test project
+      run: |
+        cd build
+        ctest -C Release
+
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: html2csv
+        path: build/html2csv

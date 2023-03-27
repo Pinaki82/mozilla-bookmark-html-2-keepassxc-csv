@@ -13,5 +13,4 @@ tags
 /tests
 *.orig
 *.bak
-/.github
 *.keyx
