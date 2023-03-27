@@ -59,7 +59,3 @@ jobs:
         with:
           name: html2csv
           path: build/html2csv
-
-
-    steps:
-    - name: Checkout code
