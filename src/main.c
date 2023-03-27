@@ -1,4 +1,4 @@
-// Last Change: 2023-03-26  Sunday: 10:58:56 PM
+// Last Change: 2023-03-27  Monday: 07:54:40 PM
 
 /*
   Licence: GNU GENERAL PUBLIC LICENSE, Version 3, 29 June 2007
@@ -98,12 +98,19 @@
 #include <stdlib.h> // General memory functions
 #include <string.h> // String manipulation functions
 
+#define VERSION "1.0" // defines a constant string called "VERSION" with the value "1.0"
 #define MAX_LINE_SIZE 40000 // Maximum line size that is allowed to be read.
 
 char output_str[MAX_LINE_SIZE]; // Global variable to store and manipulate the output string.
 
 int main(int argc, char *argv[]) { // Main function. argc means the number of arguments. argv[0] is the program name. argv[1] is the first argument. argv[2] is the second argument.
+  if(argc == 2 && strcmp(argv[1], "--version") == 0) {  // checks if the program was called with the argument "--version". If it was, it prints out the value of the "VERSION" constant and returns 0.
+    printf("%s\n", VERSION);
+    return 0;
+  }
+
   if(argc != 3) {
+    /* checks if the program was called with exactly two arguments. */
     /* Checks if the number of arguments is correct (3).
                        1. prog. name 2. input 3. output */
     printf("Usage: html2csv input_file.html output_file.csv\n"); // Prints how to use the program on the screen.
