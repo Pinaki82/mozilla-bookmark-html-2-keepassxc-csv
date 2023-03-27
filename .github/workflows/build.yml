@@ -12,6 +12,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
+        # os: [ubuntu-latest]
 
     steps:
     - name: Checkout code
@@ -30,7 +31,11 @@ jobs:
         cd build
         cmake ..
         cmake --build . --config Release
-        ./html2csv ../test.html test.csv
+        if [ "${{ matrix.os }}" == "windows-latest" ]; then
+          ./html2csv.exe ../test.html test.csv
+        else
+          ./html2csv ../test.html test.csv
+        fi
 
     - name: Test project
       run: |
