@@ -10,6 +10,8 @@ Then, you might be interested in [KeePassXC](https://keepassxc.org/), a password
 
 KeePassXC, on the other hand, doesn't allow importing HTML database files; it accepts a few file formats for import, of which CSV is the primary means of transferring data from other password managers to KeePassXC.
 
+#### The program's name is `html2csv`
+
 `html2csv` will help you to convert that browser bookmark database into a CSV file that KeePassXC recognises.
 
 ## How will you use `html2csv`?
