@@ -28,11 +28,17 @@ jobs:
         buildType: Release
 
       #
-      # if [ "${{ matrix.os }}" == "windows-latest" ]; then
+      ##### if [ "${{ matrix.os }}" == "windows-latest" ]; then
+      # if [ "windows-latest" == "windows-latest" ]; then
+      #    .\html2csv.exe ..\test.html test.csv
+      #  else
+      #    ./html2csv ../test.html test.csv
+      #  fi
       #
       # .\html2csv.exe --version
       #
       # ./html2csv --version
+      #
 
     - name: Build project
       run: |
@@ -40,11 +46,7 @@ jobs:
         cd build
         cmake ..
         cmake --build . --config Release
-        if [ "windows-latest" == "windows-latest" ]; then
-          .\html2csv.exe ..\test.html test.csv
-        else
-          ./html2csv ../test.html test.csv
-        fi
+        .\html2csv.exe ..\test.html test.csv
 
     - name: Test project
       run: |
