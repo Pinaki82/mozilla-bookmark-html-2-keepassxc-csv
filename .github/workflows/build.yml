@@ -14,48 +14,48 @@ jobs:
         os: [ubuntu-latest, windows-latest]
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Set up CMake, Build and Test
-           uses: lukka/run-cmake@v2
-           with:
-               token: ${{ secrets._2023MAR }}
-               cmakeListsTxt: CMakeLists.txt
-               buildDir: build
-               buildType: Release
-               uses: actions/checkout@v2
-
-      - name: Install CMake
-        if: runner.os == 'Linux'
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y cmake
-
-        if: runner.os == 'Windows'
-        run: |
-          choco install cmake
-
-      - name: Build project
-        run: |
-          mkdir -p build
-          cd build
-          cmake ..
-          # cmake --build .
-          cmake --build . --config Release
-
-      - name: Run project
-        run: |
-          cd build
-          ./html2csv ../test.html test.csv
+    - name: Set up CMake
+    if: runner.os == 'Linux'
+    run: |
+        sudo apt-get update
+        sudo apt-get install -y cmake
+    - name: Set up CMake
+    if: runner.os == 'Windows'
+    run: |
+        choco install cmake
+    - name: Build and Test
+    run: |
+        cmake .
+        cmake --build .
+        ctest
 
 
-      - name: Test project
-        run: |
-          cd build
-          ctest -C Release
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Set up CMake, Build and Test
+      uses: lukka/run-cmake@v2
+      with:
+        token: ${{ secrets._2023MAR }} # _2023MAR is the GitHub Access Token Name
+                                       # Can be GH_TOKEN
+        cmakeListsTxt: CMakeLists.txt
+        buildDir: build
+        buildType: Release
 
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: html2csv
-          path: build/html2csv
+    - name: Build project
+      run: |
+        mkdir -p build
+        cd build
+        cmake ..
+        cmake --build . --config Release
+        ./html2csv ../test.html test.csv
+
+    - name: Test project
+      run: |
+        cd build
+        ctest -C Release
+
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: html2csv
+        path: build/html2csv
