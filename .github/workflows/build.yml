@@ -1,5 +1,7 @@
 name: Build
 
+# Fails at the Windows Build stage
+
 on:
   push:
     branches: [ main ]
@@ -11,10 +13,8 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [windows-latest]
+        os: [ubuntu-latest]
         # os: [ubuntu-latest, windows-latest]
-        # os: [windows-latest]
-        # os: [ubuntu-latest]
 
     steps:
     - name: Checkout code
@@ -22,7 +22,8 @@ jobs:
     - name: Set up CMake, Build and Test
       uses: lukka/run-cmake@v2
       with:
-        token: ${{ secrets._2023MAR }} # _2023MAR -> Github Access Token Name. It can be GH_TOKEN as well.
+        token: ${{ secrets._2023MAR }} # _2023MAR -> Github Access Token Name.
+                                       # It can be GH_TOKEN as well.
         cmakeListsTxt: CMakeLists.txt
         buildDir: build
         buildType: Release
@@ -46,7 +47,7 @@ jobs:
         cd build
         cmake ..
         cmake --build . --config Release
-        .\html2csv.exe ..\test.html test.csv
+        ./html2csv ../test.html test.csv
 
     - name: Test project
       run: |
