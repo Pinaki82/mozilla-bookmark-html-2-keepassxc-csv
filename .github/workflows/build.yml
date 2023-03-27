@@ -20,7 +20,7 @@ jobs:
     - name: Set up CMake, Build and Test
       uses: lukka/run-cmake@v2
       with:
-        token: ${{ secrets._2023MAR }}
+        token: ${{ secrets._2023MAR }} # _2023MAR -> Github Access Token Name. It can be GH_TOKEN as well.
         cmakeListsTxt: CMakeLists.txt
         buildDir: build
         buildType: Release
