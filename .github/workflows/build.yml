@@ -24,6 +24,11 @@ jobs:
         buildDir: build
         buildType: Release
 
+    - name: Create build directory
+        run: |
+          mkdir build
+          cd build
+
     - name: Build project
       run: cmake --build build --config Release
 
