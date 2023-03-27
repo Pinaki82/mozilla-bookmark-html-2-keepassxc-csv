@@ -14,11 +14,12 @@ jobs:
         os: [ubuntu-latest, macos-latest, windows-latest]
 
     steps:
-    - name: Checkout
+    - name: Checkout code
       uses: actions/checkout@v2
     - name: Set up CMake, Build and Test
       uses: lukka/run-cmake@v2
       with:
+        token: ${{ secrets.GH_TOKEN }}
         cmakeListsTxt: CMakeLists.txt
         buildDir: build
         buildType: Release
