@@ -3,7 +3,6 @@
 *.exe
 backup_code.txt
 *.csv
-*.html
 compile_flags.txt
 .ccls
 tagspath.txt
