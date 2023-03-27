@@ -30,7 +30,7 @@ jobs:
         cd build
         cmake ..
         cmake --build . --config Release
-        ./html2csv --version
+        ./html2csv input_file.html output_file.csv
 
     - name: Test project
       run: |
