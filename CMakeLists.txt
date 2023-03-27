@@ -53,7 +53,7 @@ if(WIN32 AND MSVC)
   )
 else()
   target_link_options(html2csv PRIVATE
-    $<$<CONFIG:Debug>:-Wl,--export-all-symbols>
+    # $<$<CONFIG:Debug>:-Wl,--export-all-symbols>
   )
 endif()
 
