@@ -32,7 +32,7 @@ jobs:
         cmake ..
         cmake --build . --config Release
         if [ "${{ matrix.os }}" == "windows-latest" ]; then
-          ./html2csv.exe ../test.html test.csv
+          .\html2csv.exe ..\test.html test.csv
         else
           ./html2csv ../test.html test.csv
         fi
