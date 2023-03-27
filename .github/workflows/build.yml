@@ -11,7 +11,9 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest]
+        os: [windows-latest]
+        # os: [ubuntu-latest, windows-latest]
+        # os: [windows-latest]
         # os: [ubuntu-latest]
 
     steps:
@@ -25,23 +27,23 @@ jobs:
         buildDir: build
         buildType: Release
 
+      #
+      # if [ "${{ matrix.os }}" == "windows-latest" ]; then
+      #
+      # .\html2csv.exe --version
+      #
+      # ./html2csv --version
+
     - name: Build project
       run: |
         mkdir -p build
         cd build
         cmake ..
         cmake --build . --config Release
-      #
-      # if [ "${{ matrix.os }}" == "windows-latest" ]; then
-      #
         if [ "windows-latest" == "windows-latest" ]; then
           .\html2csv.exe ..\test.html test.csv
-      #
-      # .\html2csv.exe --version
-      #
         else
           ./html2csv ../test.html test.csv
-      # ./html2csv --version
         fi
 
     - name: Test project
